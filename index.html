@@ -4,6 +4,24 @@
     <title>Lightning Out - Guest Access</title>
     <!-- Load Lightning Out from Experience Cloud site -->
     <script src="https://ibm-1fc.my.site.com/lightning/lightning.out.js"></script>
+    <script>
+  window.onload = function() {
+    $Lightning.use("c:LightningOutApp",
+      function() {
+        $Lightning.createComponent(
+          "c:embeddedFlowAura",
+          {},
+          "lightning",
+          function(cmp) {
+            console.log("Component loaded!");
+          }
+        );
+      },
+      "https://ibm-1fc.my.site.com"
+    );
+  };
+</script>
+
 </head>
 <body>
     <div id="lightning"></div>
