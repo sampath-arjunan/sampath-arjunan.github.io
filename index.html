@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lightning Out LWC Demo</title>
-    <script src="https://ibm-1fc.lightning.force.com/lightning/lightning.out.js"></script>
+    <title>Lightning Out - Guest Access</title>
+    <!-- Load Lightning Out from Experience Cloud site -->
+    <script src="https://ibm-1fc.my.site.com/lightning/lightning.out.js"></script>
 </head>
 <body>
     <div id="lightning"></div>
 
     <script>
-        $Lightning.use("c:LightningOutApp",
+        $Lightning.use("c:LightningOutApp", // Lightning Out App
             function() {
                 $Lightning.createComponent(
-                    "c:embeddedFlowAura",
+                    "c:embeddedFlowAura",   // Aura component wrapping your LWC
                     {},
-                    "lightning",
+                    "lightning",           // Target DIV ID
                     function(cmp) {
-                        console.log("LWC inside Aura loaded via Lightning Out");
+                        console.log("Lightning Out Component loaded successfully.");
                     }
                 );
             },
-            "https://ibm-1fc.lightning.force.com"
+            "https://ibm-1fc.my.site.com"  // Community domain (NOT .force.com)
         );
     </script>
 </body>
