@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Lightning Out Demo</title>
+    <!-- Load Lightning Out -->
+    <script src="https://yourDomain.lightning.force.com/lightning/lightning.out.js"></script>
+</head>
 <body>
+    <div id="lightning"></div>
 
-<h2>HTML Forms</h2>
-
-<form action="/action_page.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
-  <input type="submit" value="Submit">
-</form> 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
-
+    <script>
+        $Lightning.use("c:LightningOutApp",    // Name of your Lightning Out app
+            function() {
+                $Lightning.createComponent(
+                    "c:embeddedFlowAura",      // Aura component to render
+                    {},
+                    "lightning",              // Target DOM ID
+                    function(cmp) {
+                        console.log("Component created successfully!");
+                    }
+                );
+            },
+            "https://ibm-1fc.lightning.force.com"  // Your Salesforce My Domain
+        );
+    </script>
 </body>
 </html>
-
